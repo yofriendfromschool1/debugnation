@@ -1,0 +1,43 @@
+--[[Suport :
+LocalScript < Instance >
+ModuleScript < Instance >
+Table
+Function
+
+```
+Decompile.setclipboard = Boolean
+Decompile.getupvalues = Boolean
+Decompile.getconstants = Boolean
+Decompile.WaitDecompile = Boolean < Reduse Lag >
+Decompile.new()
+```
+
+This script has many bugs, sometimes your game may crash or the script may not work]]--
+local Decompile = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/Decompile/main/Mobile.lua"))()
+Decompile.getconstants = false
+Decompile.getupvalues = false
+Decompile.new(Decompile)
+
+-- Dex Explorer
+--[[
+local Decompile = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/Decompile/main/Mobile.lua"))()
+Decompile.setclipboard = false
+Decompile.getupvalues = true
+getgenv().decompile = Decompile.new
+loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+]]
+
+-- Example
+--[[
+local Decompile = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/Decompile/main/Mobile.lua"))()
+
+Decompile.getconstants = false
+Decompile.getupvalues = false
+
+-- Table
+Decompile.new(Decompile)
+
+-- Instance
+Decompile.new(workspace.LocalScript)
+Decompile.new(workspace.ModuleScript)
+]]

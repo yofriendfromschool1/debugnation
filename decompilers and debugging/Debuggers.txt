@@ -1,0 +1,90 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+local Window = Fluent:CreateWindow({
+	Title = "Debuggers",
+	SubTitle = "LMAO",
+	TabWidth = 160,
+	Size = UDim2.fromOffset(580, 460),
+	Acrylic = false,
+	Theme = "Dark",
+	MinimizeKey = Enum.KeyCode.LeftControl
+})
+local Discord = Window:AddTab({
+	Title = "Discords",
+	Icon = "globe"
+})
+local Options = Fluent.Options
+Discord:AddButton({
+	Title = "Discord Invite",
+	Description = "Copys Discord invite link",
+	Callback = function()
+		setclipboard(string)
+	end
+})
+Discord:AddButton({
+	Title = "Discord Invite OLD",
+	Description = "Copys OLD Discord invite link",
+	Callback = function()
+		setclipboard(string2)
+	end
+})
+local Debugs = Window:AddTab({
+	Title = "Debuggers",
+	Icon = "globe"
+})
+Debugs:AddButton({
+	Title = "Dex",
+	Description = "Explorer",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+	end
+})
+Debugs:AddButton({
+	Title = "SimpleSpy V3",
+	Description = "Logs Remotes",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+	end
+})
+Debugs:AddButton({
+	Title = "Hydroxide",
+	Description = "Ultimate Debugging",
+	Callback = function()
+		local owner = "Upbolt"
+		local branch = "revision"
+		local function webImport(file)
+			return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+		end
+		webImport("init")
+		webImport("ui/main")
+	end
+})
+Debugs:AddButton({
+	Title = "HttpSpy",
+	Description = "Checks for Http request or post",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Httpspy/main/httpspy.txt"))()
+	end
+})
+local Settings = Window:AddTab({
+	Title = "Settings",
+	Icon = "settings"
+})
+InterfaceManager:BuildInterfaceSection(Settings)
+
+SaveManager:SetLibrary(Fluent)
+SaveManager:IgnoreThemeSettings()
+SaveManager:SetIgnoreIndexes({
+	'TextboxIdentifier'
+})
+SaveManager:SetFolder("Debuggers/Configs")
+
+local Config = Window:AddTab({
+	Title = "Config",
+	Icon = "settings"
+})
+SaveManager:BuildConfigSection(Config)
+
+SaveManager:LoadAutoloadConfig()
+Window:SelectTab(1)
