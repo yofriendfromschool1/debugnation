@@ -123,6 +123,31 @@ Debugs:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/subplaceviewer.txt"))()
 	end
 })
+Debugs:AddButton({
+	Title = "Game saver",
+	Description = "uses executor saveinstance()",
+	Callback = function()
+		saveinstance()
+	end
+})
+Debugs:AddButton({
+	Title = "Game saver 2",
+	Description = "uses online or script or sum saveinstance() DONT NEED SAVE INSTANCE",
+	Callback = function()
+		if saveinstance then
+			getgenv().saveinstance = nil
+		end
+		loadstring(game:HttpGet("https://github.com/MuhXd/Roblox-mobile-script/blob/main/Arecus-X-Neo/Saveinstance.lua?raw=true"))();
+	end
+})
+Debugs:AddButton({
+	Title = "Xanes Model Recreator",
+	Description = "copys link to scriptbloxpage",
+	Callback = function()
+		setclipboard("https://scriptblox.com/script/Universal-Script-Xanes-Model-Recreator-9892")
+
+	end
+})
 local Settings = Window:AddTab({
 	Title = "Settings",
 	Icon = "settings"
