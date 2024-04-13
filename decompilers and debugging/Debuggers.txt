@@ -117,6 +117,13 @@ Debugs:AddButton({
 	end
 })
 Debugs:AddButton({
+	Title = "Game Fire RemoteEvent InvokeServer() GUI",
+	Description = "A GUI that when clicked calls InvokeServer() to the found RemoteEvent in the game.",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gameinvokeserver.lua"))()
+	end
+})
+Debugs:AddButton({
 	Title = "Game Subplace viewer",
 	Description = "A GUI that shows all the subplaces of the current game and game ids",
 	Callback = function()
