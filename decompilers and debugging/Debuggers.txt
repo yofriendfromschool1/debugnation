@@ -50,9 +50,50 @@ Debugs:AddButton({
 		end
 	end
 })
+local ACBypass1 = Window:AddTab({
+	Title = "Debuggers",
+	Icon = "globe"
+})
+ACBypass1:AddButton({
+	Title = "Anti Kick",
+	Description = "stops local scripts from kicking you",
+	Callback = function()
+		local mt = getrawmetatable(game)
+
+		setreadonly(mt, false)
+
+		local oldmt = mt.__namecall
+
+		mt.__namecall = newcclosure(function(Self, ...)
+
+
+		local method = getnamecallmethod()
+
+		if method == 'Kick' then
+		
+			print("Tried To kick")
+			wait(9e9)
+			return nil
+
+		end
+
+		return oldmt(Self, ...)
+
+		end)
+
+		setreadonly(mt, true)
+	end
+})
+ACBypass1:AddButton({
+	Title = "Bypass AntiCheats/Kicks",
+	Description = "best fr",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/AntiCheat/main/Bypass"))()
+	end
+})
 Debugs:AddButton({
 	Title = "SimpleSpy V3",
-	Description = "Logs Remotes",
+	Description = "Logs Remotes, you may get kicked if they have good AC or namecall detection recommend the ac bypassers",
 	Callback = function()
 		if IsOnMobile then
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/SimpleSpyV3/mobilemain.lua"))()
@@ -63,7 +104,7 @@ Debugs:AddButton({
 })
 Debugs:AddButton({
 	Title = "Hydroxide",
-	Description = "Ultimate Debugging",
+	Description = "Ultimate Debugging, you may get kicked if they have good AC or namecall detection recommend the ac bypassers",
 	Callback = function()
 		local owner = "Upbolt"
 		local branch = "revision"
