@@ -51,7 +51,7 @@ Debugs:AddButton({
 	end
 })
 local ACBypass1 = Window:AddTab({
-	Title = "Debuggers",
+	Title = "Anti Cheats",
 	Icon = "globe"
 })
 ACBypass1:AddButton({
