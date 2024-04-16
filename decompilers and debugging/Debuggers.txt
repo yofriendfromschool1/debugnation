@@ -180,6 +180,13 @@ Debugs:AddButton({
 })
 Debugs:AddButton({
 	Title = "Game saver 2",
+	Description = "uses executor saveplace()",
+	Callback = function()
+		saveplace({FileName = "SkyHubSavedGame"})
+	end
+})
+Debugs:AddButton({
+	Title = "Game saver 3",
 	Description = "uses online or script or sum saveinstance() DONT NEED SAVE INSTANCE",
 	Callback = function()
 		if saveinstance then
