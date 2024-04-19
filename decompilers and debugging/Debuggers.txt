@@ -172,6 +172,14 @@ Debugs:AddButton({
 	end
 })
 Debugs:AddButton({
+	Title = "Mobile Console Viewer",
+	Description = "view console on mobile",
+	Callback = function()
+		local console = loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/debugnation/main/decompilers%20and%20debugging/Console%20UI.lua"))()
+		local ui = console:load()
+	end
+})
+Debugs:AddButton({
 	Title = "Game saver",
 	Description = "uses executor saveinstance()",
 	Callback = function()
@@ -193,13 +201,6 @@ Debugs:AddButton({
 			getgenv().saveinstance = nil
 		end
 		loadstring(game:HttpGet("https://github.com/MuhXd/Roblox-mobile-script/blob/main/Arecus-X-Neo/Saveinstance.lua?raw=true"))();
-	end
-})
-Debugs:AddButton({
-	Title = "Pro Script Dumper",
-	Description = "you need a decompiler or decompiler script btw writes to workspace under a folder named Pro Script Dumper",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/debugnation/main/decompilers%20and%20debugging/proscriptdumper.lua"))();
 	end
 })
 Debugs:AddButton({
