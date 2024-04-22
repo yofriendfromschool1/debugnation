@@ -92,6 +92,13 @@ ACBypass1:AddButton({
 	end
 })
 ACBypass1:AddButton({
+	Title = "Bypass AntiCheats/Kicks 2",
+	Description = "best fr",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/AntiCheat/main/Bypass"))()
+	end
+})
+ACBypass1:AddButton({
 	Title = "Bypass Adonis and newindex anticheat",
 	Description = "fr",
 	Callback = function()
