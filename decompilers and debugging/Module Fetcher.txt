@@ -1,0 +1,61 @@
+-- test output: https://pastebin.com/raw/gCcmsXSv
+-- example usage:
+local module = require(game:GetService("ReplicatedStorage").Modules.Titles) -- module script path
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Utils/Module%20Fetcher.lua"))():convert({
+    action = "copy"; -- {copy,log} (log=print)
+    JSON = game:GetService("HttpService"):JSONEncode(module) -- json code (any json code)
+})
+--[[-- test output: https://pastebin.com/raw/gCcmsXSv
+-- yes ik its not really a decompiler get over it, atleast it works (for me)
+--[[ example usage:
+local module = require(game:GetService("ReplicatedStorage").Modules.Titles) -- module script path
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/Ouxie/main/Utils/Module%20Fetcher.lua"))():convert({
+    action = "copy"; -- {copy,log} (log=print)
+    JSON = game:GetService("HttpService"):JSONEncode(module) -- json code (any json code)
+})
+]]
+local decompJSON = {}
+
+local output = [=[]=]
+
+function decompJSON:convert(config)
+    local function fromat(tbl, indent)
+        indent = indent or 0
+        for key, value in pairs(tbl) do
+            local formatting = string.rep("\t", indent) .. "\n  [\"" .. tostring(key) .. "\"]"
+            if type(value) == "table" then
+                output = output .. formatting .. " = {"
+                fromat(value, indent + 1)
+                output = output .. string.rep("\t", indent) .. "\n};"
+            else
+                output = output .. formatting .. " = " .. tostring(value) .. ";"
+            end
+        end
+    end
+
+    local function convert(jsonString)
+        local tableData = game:GetService("HttpService"):JSONDecode(jsonString)
+        if tableData then
+            output = "local module = {"
+            fromat(tableData, 1)
+            output = output .. "\n};"
+            return {
+                copy = function()
+                    setclipboard(output)
+                end;
+                log = function()
+                    print(output)
+                end
+            }
+        else
+            return nil
+        end
+    end
+    if config.action == "copy" then
+        convert(config.JSON):copy()
+    else
+        convert(config.JSON):log()
+    end
+end
+
+return decompJSON]]
