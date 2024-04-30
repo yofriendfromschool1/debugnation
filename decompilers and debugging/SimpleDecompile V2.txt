@@ -1,3 +1,22 @@
+--[[An amazingly improved version of SimpleDecompile!
+This script can:
+Read Functions, Scripts, Protos, Upvalues & Constants,
+Decompile scripts (Some functions may be named NO_NAME_FOUND, If you're a bit experienced with luau you might be able to understand what it says),
+Read tables, constants, instance paths, metamethods AND buffers much, much better,
+Better indentation,
+Works for mobile (CODEX, DELTA, NOT TESTED ON VEGAX),
+Will give unknown functions random names (NO_NAME_FOUND1960, NO_NAME_FOUND3591, proto19, proto10, proto86, ...)
+Reads upvalues with no problem.
+TODO:
+Add renv checks, Checks if a function has roblox libraries or functions in constants.
+v1.0.1:
+Added the renv check.
+USAGE:
+```lua
+local decompile = loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-SimpleDecompile-V2-12641"))()
+local Path = -- your script path
+setclipboard(decompile(Path))
+```]]
 local Numbers = {}
 local Properties = {}
 local HttpService = game:GetService('HttpService');
