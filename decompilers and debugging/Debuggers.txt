@@ -40,6 +40,13 @@ local Debugs = Window:AddTab({
 	Icon = "globe"
 })
 Debugs:AddButton({
+	Title = "IY",
+	Description = "Helps just noclip or doing things faster or fly or wtv",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end
+})
+Debugs:AddButton({
 	Title = "Dex",
 	Description = "Explorer",
 	Callback = function()
