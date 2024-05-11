@@ -32,7 +32,6 @@ Discord:AddButton({
 	Description = "Copys OLD Discord invite link",
 	Callback = function()
 		setclipboard(string2)
-		
 	end
 })
 local Debugs = Window:AddTab({
@@ -255,6 +254,22 @@ Debugs:AddButton({
 	Description = "A GUI that allows you to toggle and see hidden guis found in the game.",
 	Callback = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gameuigiver.lua"))()
+	end
+})
+Debugs:AddInput({
+	Title = "GUI Stealer",
+	Default = "Put name of gui u want to convert must be screengui",
+	Placeholder = "Put name of gui u want to convert must be screengui",
+	Numeric = false, -- Only allows numbers
+	Finished = false, -- Only calls callback when you press enter
+	Callback = function(Value)
+		local UIPath
+		for i,v in pairs(game:GetDescendants()) do
+			if v.Name == Value and v:IsA("ScreenGui") then
+				UIPath = v
+			end
+		end
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/debugnation/main/decompilers%20and%20debugging/guistealer.txt"))()
 	end
 })
 Debugs:AddButton({
