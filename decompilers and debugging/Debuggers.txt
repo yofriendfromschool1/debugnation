@@ -785,7 +785,7 @@ Debugs:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gameuigiver.lua"))()
 	end
 })
-Debugs:AddInput({
+Debugs:AddInput("FE Spam Sound (AC6 Sound Exploit)",{
 	Title = "GUI Stealer",
 	Default = "Put name of gui u want to convert must be screengui",
 	Placeholder = "Put name of gui u want to convert must be screengui",
