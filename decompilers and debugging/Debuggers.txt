@@ -785,7 +785,7 @@ Debugs:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gameuigiver.lua"))()
 	end
 })
-Debugs:AddInput("FE Spam Sound (AC6 Sound Exploit)",{
+Debugs:AddInput({
 	Title = "GUI Stealer",
 	Default = "Put name of gui u want to convert must be screengui",
 	Placeholder = "Put name of gui u want to convert must be screengui",
@@ -1020,6 +1020,13 @@ Debugs:AddButton({
 			getgenv().saveinstance = nil
 		end
 		loadstring(game:HttpGet("https://github.com/MuhXd/Roblox-mobile-script/blob/main/Arecus-X-Neo/Saveinstance.lua?raw=true"))();
+	end
+})
+Debugs:AddButton({
+	Title = "Game saver 4",
+	Description = "uses LUAU's save game script USSI",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/L-u-a-u/USSI-tuned/refs/heads/main/USSI-P4.luau"))()
 	end
 })
 Debugs:AddButton({
