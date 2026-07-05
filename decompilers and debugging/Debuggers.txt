@@ -216,6 +216,13 @@ Debugs:AddButton({
 	end
 })
 Debugs:AddButton({
+	Title = "Cobalt Spy",
+	Description = "A runtime developer tool for the Roblox Game Engine to monitor and intercept incoming and outgoing network traffic",
+	Callback = function()
+		loadstring(game:HttpGet("https://github.com/notpoiu/cobalt/releases/latest/download/Cobalt.luau"))()
+	end
+})
+Debugs:AddButton({
 	Title = "SimpleSpy Solara Support Remake",
 	Description = "Logs Remotes, you may get kicked if they have good AC or namecall detection recommend the ac bypassers",
 	Callback = function()
